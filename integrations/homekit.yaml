@@ -1,0 +1,6 @@
+# Example configuration.yaml entry configuring HomeKit
+homekit:
+  filter:
+    include_domains:
+      #- light
+      #- alarm_control_panel

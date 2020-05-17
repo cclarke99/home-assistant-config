@@ -1,0 +1,4 @@
+http:
+  ssl_certificate: /ssl/wildcard_astrolan_net_bundle.crt
+  ssl_key: /ssl/wildcard_astrolan_net.key
+  base_url: https://hassio.astrolan.net:8123

@@ -1,104 +1,129 @@
 title: Office
 icon: mdi:desktop-tower-monitor
 cards:
-  #
-  # COMPUTER
-  - type: vertical-stack
+#### Synology NAS Stats
+  - type: horizontal-stack
     cards:
-      - type: markdown
-        content: >
-          ## Computer
-      - type: horizontal-stack
+      - type: vertical-stack
         cards:
-          - type: entity-button
-            entity: switch.computer
-            name: PC
-            tap_action:
-              action: toggle
-          - type: entity-button
-            entity: script.pc_restart
-            name: Restart
-            tap_action:
-              action: toggle
-          - type: entity-button
-            entity: script.pc_lock
-            name: Lock
-            tap_action:
-              action: toggle
-          - type: entity-button
-            entity: switch.server
-            name: Server
-            tap_action:
-              action: toggle
-      #
-      # Server Stats
-  - type: vertical-stack
-    cards:
-      - type: markdown
-        content: >
-          ## Synology Stats
-      - type: horizontal-stack
-        cards:
-          - type: custom:mini-graph-card
-            name: CPU
-            font_size: 75
-            entities:
-              - sensor.synology_dsm_cpu_load_total
-            show:
-              labels: true
-            color_thresholds:
-              - value: 5
-                color: "#f39c12"
-              - value: 10
-                color: "#d35400"
-              - value: 25
-                color: "#c0392b"
-          - type: custom:mini-graph-card
-            name: RAM
-            font_size: 75
-            entities:
-              - sensor.synology_dsm_memory_usage_real
-            show:
-              labels: true
-            color_thresholds:
-              - value: 10
-                color: "#f39c12"
-              - value: 15
-                color: "#d35400"
-              - value: 25
-                color: "#c0392b"
-      - type: horizontal-stack
-        cards:
-          - type: custom:mini-graph-card
-            name: Disk
-            font_size: 75
-            entities:
-              - sensor.server_disk_used_percent
-            show:
-              labels: true
-            color_thresholds:
-              - value: 10
-                color: "#f39c12"
-              - value: 15
-                color: "#d35400"
-              - value: 25
-                color: "#c0392b"
-          - type: custom:mini-graph-card
-            name: Container CPU
-            font_size: 75
-            entities:
-              - sensor.server_containers_cpu_used
-            show:
-              labels: true
-            color_thresholds:
-              - value: 5
-                color: "#f39c12"
-              - value: 7
-                color: "#d35400"
-              - value: 10
-                color: "#c0392b"
-      #
-      # Internet speeds Stats
+          - type: markdown
+            content: >
+              ## Synology Stats - Galactica
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                name: CPU
+                font_size: 75
+                entities:
+                  #- sensor.galactica_ds1618_cpu_load_total
+                  - sensor.synology_cpu_load_total
+                show:
+                  labels: false
+                color_thresholds:
+                  - value: 5
+                    color: "#f39c12"
+                  - value: 10
+                    color: "#d35400"
+                  - value: 25
+                    color: "#c0392b"
+              - type: custom:mini-graph-card
+                name: RAM
+                font_size: 75
+                entities:
+                  #- sensor.galactica_ds1618_memory_usage_real
+                  - sensor.synology_memory_usage_real
+                show:
+                  labels: false
+                color_thresholds:
+                  - value: 10
+                    color: "#f39c12"
+                  - value: 15
+                    color: "#d35400"
+                  - value: 25
+                    color: "#c0392b"
+          - type: vertical-stack
+            cards:
+              - type: entity
+                name: "Volume 1 Status"
+                entity: sensor.synology_status_volume_1
+              - type: custom:mini-graph-card
+                name: "Volume 1 Usage"
+                smoothing: true
+                lower_bound: 0
+                upper_bound: 100
+                animate: true
+                font_size: 75
+                entities:
+                  - sensor.synology_volume_used_volume_1
+                show:
+                  labels: false
+                color_thresholds:
+                  - value: 5
+                    color: "#f39c12"
+                  - value: 7
+                    color: "#d35400"
+                  - value: 10
+                    color: "#c0392b"
+          - type: markdown
+            content: >
+              ## Synology Stats - Caprica
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                name: CPU
+                font_size: 75
+                entities:
+                  - sensor.synology_cpu_load_total_2
+                show:
+                  labels: false
+                color_thresholds:
+                  - value: 5
+                    color: "#f39c12"
+                  - value: 10
+                    color: "#d35400"
+                  - value: 25
+                    color: "#c0392b"
+              - type: custom:mini-graph-card
+                name: RAM
+                font_size: 75
+                entities:
+                  - sensor.synology_memory_usage_real_2
+                show:
+                  labels: false
+                color_thresholds:
+                  - value: 10
+                    color: "#f39c12"
+                  - value: 15
+                    color: "#d35400"
+                  - value: 25
+                    color: "#c0392b"
+          - type: horizontal-stack
+            cards:
+              - type: vertical-stack
+                cards:
+                  - type: entity
+                    name: "Volume 1 Status"
+                    entity: sensor.synology_status_volume_1_2
+                  - type: custom:mini-graph-card
+                    name: "Volume 1 Usage"
+                    smoothing: true
+                    lower_bound: 0
+                    upper_bound: 100
+                    animate: true
+                    font_size: 75
+                    entities:
+                      - sensor.synology_volume_used_volume_1_2
+                    show:
+                      labels: false
+                    color_thresholds:
+                      - value: 5
+                        color: "#f39c12"
+                      - value: 7
+                        color: "#d35400"
+                      - value: 10
+                        color: "#c0392b"
+
+#### ISP Speed Test
   - type: vertical-stack
     cards:
       - type: markdown
@@ -127,3 +152,38 @@ cards:
             line_color: '#4481eb'
             line_width: 8
             font_size: 65
+
+#### UPS
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: >
+          ## Rack UPS (CyberPower)
+      - entities:
+          - entity: sensor.ups_status
+            name: Status
+          - entity: sensor.ups_input_voltage
+            name: Input Voltage
+          - entity: sensor.ups_battery_runtime
+            name: Battery Runtime
+        type: glance
+      - cards:
+          - entity: sensor.ups_battery_charge
+            max: 100
+            min: 0
+            name: UPS Battery
+            severity:
+              green: 0
+              red: -80
+              yellow: -30
+            type: gauge
+          - entity: sensor.ups_load
+            max: 100
+            min: 0
+            name: UPS Load
+            severity:
+              green: 0
+              red: 90
+              yellow: 70
+            type: gauge
+        type: horizontal-stack

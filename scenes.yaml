@@ -1,0 +1,22 @@
+- id: '1589610988256'
+  name: Bedtime
+  entities:
+    light.corey_nightstand:
+      brightness: 143
+      color_temp: 400
+      friendly_name: Corey Nightstand
+      max_mireds: 454
+      min_mireds: 153
+      state: 'on'
+      supported_features: 43
+- id: '1589611021827'
+  name: Bedtime
+  entities:
+    light.corey_nightstand:
+      brightness: 143
+      color_temp: 400
+      friendly_name: Corey Nightstand
+      max_mireds: 454
+      min_mireds: 153
+      state: 'on'
+      supported_features: 43

@@ -1,0 +1,10 @@
+sensor:
+  - platform: nut
+    name: CyberPower CST135XLU
+    host: galactica.astrolan.net
+    resources:
+      - ups.status.display
+      - ups.load
+      - input.voltage
+      - battery.charge
+      - battery.runtime

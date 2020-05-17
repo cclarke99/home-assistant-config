@@ -6,3 +6,6 @@ secrets.yaml
 .storage/
 OZW_Log.txt
 known_devices.yaml
+caseta*
+*.key
+home-assistant_v2*

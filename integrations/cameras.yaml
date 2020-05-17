@@ -1,0 +1,8 @@
+camera:
+  - platform: generic
+    name: Weather Camera
+    username: !secret roofcam_username
+    password: !secret roofcam_password
+    still_image_url: !secret roofcam_url_still
+    stream_source: !secret roofcam_url_rtsp
+    verify_ssl: false

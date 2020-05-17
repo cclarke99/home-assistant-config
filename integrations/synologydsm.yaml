@@ -1,0 +1,8 @@
+synology_dsm:
+  - host: galactica.astrolan.net
+    username: !secret synology_username
+    password: !secret synology_password
+
+  - host: caprica.astrolan.net
+    username: !secret synology_username
+    password: !secret synology_password
